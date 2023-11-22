@@ -53,8 +53,15 @@ public void deleteContact(){
     System.out.println("Enter Name:");
     String enteredName = scanner.nextLine();
     Contact removedContact = contactPhone.remove(enteredName);
-
-    if (removedContact!=null){
+    contacts.remove(enteredName);
+    boolean removed = false;
+    for (Contact contact : contacts) {
+        if (contact.getName().equals(enteredName)) {
+            contacts.remove(contact);
+            removed = true;
+            break;
+        }}
+    if (removedContact!=null&&removed){
         System.out.println("removed contact : " + removedContact.getName());
     }
     else

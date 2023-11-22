@@ -16,7 +16,7 @@ String name;
             System.out.println("0 - Show adress Book");
             System.out.println("1 - add contact");
             System.out.println("2 - delete contact");
-            System.out.println("3 - edit contact ");
+            System.out.println("3 - edit contact");
             System.out.println("4 - szukacz");
             System.out.println("5 - exit");
 
@@ -32,10 +32,10 @@ String name;
                     adressBook.addContactName();
                     break;
                 case 2:
-                    System.out.println(2);
+                    adressBook.deleteContact();
                     break;
                 case 3:
-                    adressBook.deleteContact();
+
                     break;
                 case 4:
                     adressBook.displayContatctByPhoneNumber();
