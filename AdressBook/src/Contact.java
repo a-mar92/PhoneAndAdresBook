@@ -32,6 +32,18 @@ public class Contact {
         return phoneNumbers;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public void setPhoneNumbers(List<Long> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
     public void displayContact(){
         System.out.println("name " +name);
         System.out.println("Adress "+ adress);
@@ -39,6 +51,9 @@ public class Contact {
         System.out.println("Phone numbers:");
         for (Long phoneNumber : phoneNumbers) {
             System.out.println(phoneNumber);}
+    }
+    public void clearPhoneNumbers() {
+        this.phoneNumbers.clear();
     }
 }
 

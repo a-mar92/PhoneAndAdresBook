@@ -10,18 +10,18 @@ public class Main {
         AdressBook adressBook = new AdressBook();
         boolean chooseMenu = true;
 
-String name;
+        String name;
         while (chooseMenu) {
             System.out.println("Phone and Aress Book");
             System.out.println("0 - Show adress Book");
             System.out.println("1 - add contact");
             System.out.println("2 - delete contact");
             System.out.println("3 - edit contact");
-            System.out.println("4 - szukacz");
+            System.out.println("4 - find contact");
             System.out.println("5 - exit");
 
             System.out.println("");
-           Integer menu = Integer.valueOf(scanner.nextInt());
+            Integer menu = Integer.valueOf(scanner.nextInt());
             switch (menu) {
                 case 0:
 
@@ -35,12 +35,12 @@ String name;
                     adressBook.deleteContact();
                     break;
                 case 3:
-
+                    adressBook.editContatctByPhoneNumber();
                     break;
                 case 4:
                     adressBook.displayContatctByPhoneNumber();
                     break;
-                    case 5:
+                case 5:
                     System.out.println("exit");
                     chooseMenu = false;
                     break;

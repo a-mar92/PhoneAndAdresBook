@@ -44,8 +44,8 @@ String name;
         if (contact != null) {
             contact.displayContact();
 
-            System.out.println("Contact not found for the entered name.");
-        }else {
+
+        }else {System.out.println("Contact not found for the entered name.");
             }
     }
 
@@ -70,14 +70,66 @@ public void deleteContact(){
     System.out.println("done");
 }
     public void displayContact(){
+        if (contacts.isEmpty())
+        {
+            System.out.println("Empty contact list");
+            System.out.println();
+        }
+        else{
         for (Contact contacts: contacts
-             ) {contacts.displayContact();
+             ) {
+            contacts.displayContact();
 
 
         }
+            System.out.println();
+    }}
+
+    public void editContatctByPhoneNumber(){
+
+        if (contacts.isEmpty()) { // Sprawdzenie czy lista kontaktów jest pusta
+            System.out.println("Empty contact list. Cannot edit contacts.");
+            return;
+        }
+
+
+            System.out.println("Enter contact name to edit:");
+            String enteredName = scanner.nextLine();
+
+            Contact contact = contactPhone.get(enteredName);
+
+         if (contact != null) {
+            contact.displayContact();
+
+            System.out.println("Enter new name:");
+            String newName = scanner.nextLine();
+            contactPhone.remove(enteredName);
+            contact.setName(newName);
+
+            System.out.println("Enter new address:");
+            String newAddress = scanner.nextLine();
+            contact.setAdress(newAddress);
+
+             System.out.println("How many new phone numbers do you want to add?");
+             int numOfPhoneNumbers = scanner.nextInt();
+             scanner.nextLine();
+
+             contact.clearPhoneNumbers();
+
+             for (int i = 0; i < numOfPhoneNumbers; i++) {
+                 System.out.println("Enter new phone number " + (i + 1) + ":");
+                 long phoneNumber = scanner.nextLong();
+                 scanner.nextLine();
+                 contact.addPhoneNumber(phoneNumber);
+             }
+
+             System.out.println("Contact updated successfully.");
+             contactPhone.put(newName,contact);
+
+        }else {
+            System.out.println("Contact not found for the entered name.");
+        }
     }
-
-
 
 
 }
