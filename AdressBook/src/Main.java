@@ -7,8 +7,13 @@ public class Main {
 
 
         Scanner scanner = new Scanner(System.in);
-        AdressBook adressBook = new AdressBook();
+
+        AdresBookData adresBookData = new AdresBookData();
+        AdressBookConsol adressBookConsol = new AdressBookConsol(adresBookData);
+        AdressBookLogic adressBookLogic = new AdressBookLogic(adressBookConsol, adresBookData);
+
         boolean chooseMenu = true;
+
 
         String name;
         while (chooseMenu) {
@@ -24,21 +29,20 @@ public class Main {
             Integer menu = Integer.valueOf(scanner.nextInt());
             switch (menu) {
                 case 0:
-
-                    adressBook.displayContact();
+                    adressBookConsol.displayContact();
                     break;
                 case 1:
 
-                    adressBook.addContactName();
+                    adressBookLogic.addContactName();
                     break;
                 case 2:
-                    adressBook.deleteContact();
+                    adressBookLogic.deleteContact();
                     break;
                 case 3:
-                    adressBook.editContatctByPhoneNumber();
+                 adressBookLogic.editContatctByPhoneNumber();
                     break;
                 case 4:
-                    adressBook.displayContatctByPhoneNumber();
+                    adressBookLogic.displayContatctByName();
                     break;
                 case 5:
                     System.out.println("exit");
